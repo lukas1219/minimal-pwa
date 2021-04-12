@@ -1,6 +1,6 @@
 self.addEventListener('install', function(event) {
     event.waitUntil(
-        caches.open('FILL_IN_CACHE_NAME_v1')
+        caches.open('version')
             .then(cache => cache.addAll([
                 'index.html',
                 'main.js',
@@ -17,7 +17,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event) {
     event.respondWith(
       caches
-        .open("FILL_IN_CACHE_NAME_v1")
+        .open("version")
         .then(function (cache) {
           return cache.match(event.request);
         })
